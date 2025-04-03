@@ -5,10 +5,11 @@ import { Label } from "@/components/ui/label";
 import { KeyRound, Mail } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import { signInAction } from "@/actions/signInAction";
 
 export default function LoginComponent() {
   return (
-    <form className="space-y-6 ">
+    <form className="space-y-6 " action={signInAction}>
       {/* email */}
       <div>
         <Label
@@ -19,7 +20,8 @@ export default function LoginComponent() {
         </Label>
 
         <Input
-          type="text"
+          type="email"
+          name="email"
           placeholder="Please type your email"
           className={`bg-transparent py-2.5 px-4 rounded-lg w-full text-black/90`}
         />
@@ -36,6 +38,7 @@ export default function LoginComponent() {
 
         <Input
           type="password"
+          name="password"
           placeholder="Please type your password"
           className={`bg-transparent py-2.5 px-4 rounded-lg w-full text-black/90`}
         />
@@ -55,7 +58,7 @@ export default function LoginComponent() {
         <div className="capitalize text-right mt-4 font-normal">
           create new accont?{" "}
           <Link
-            href={"/signup"}
+            href={"/register"}
             className="hover:text-purple-700 hover:underline"
           >
             Sign Up

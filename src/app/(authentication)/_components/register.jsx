@@ -1,14 +1,16 @@
 "use client";
+import { signUpAction } from "@/actions/signUpAction";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { KeyRound, Mail, UserRound } from "lucide-react";
 import Link from "next/link";
+
 import React from "react";
 
 export default function RegisterComponent() {
   return (
-    <form className="space-y-6">
+    <form className="space-y-6" action={signUpAction}>
       {/* username */}
       <div>
         <Label
@@ -19,7 +21,8 @@ export default function RegisterComponent() {
         </Label>
 
         <Input
-          type="text"
+          type="username"
+          name="username"
           placeholder="Please type your username"
           className={` bg-transparent py-2.5 px-4 rounded-lg w-full text-black/90`}
         />
@@ -35,7 +38,8 @@ export default function RegisterComponent() {
         </Label>
 
         <Input
-          type="text"
+          type="email"
+          name="email"
           placeholder="Please type your email"
           className={`bg-transparent py-2.5 px-4 rounded-lg w-full text-black/90`}
         />
@@ -52,6 +56,7 @@ export default function RegisterComponent() {
 
         <Input
           type="password"
+          name="password"
           placeholder="Please type your password"
           className={`bg-transparent py-2.5 px-4 rounded-lg w-full text-black/90`}
         />
@@ -68,7 +73,7 @@ export default function RegisterComponent() {
         <div className="text-right mt-4 font-normal">
           Already have an account?{" "}
           <Link
-            href={"/signin"}
+            href={"/login"}
             className="hover:text-purple-700 hover:underline"
           >
             Login
