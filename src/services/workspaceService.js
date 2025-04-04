@@ -61,9 +61,7 @@ export const updateWorkspace = async ({ id, formData }) => {
     body: JSON.stringify(formData),
   });
 
-  if (!response.ok) {
-    throw new Error("Failed to update workspace");
-  }
+  console.log("Response: ", response);
 
   revalidateTag("workspace");
 };

@@ -1,3 +1,4 @@
+"use client";
 import {
   Select,
   SelectContent,
@@ -8,8 +9,20 @@ import {
 import { Clock, Ellipsis } from "lucide-react";
 import React from "react";
 import { MoreHorizontalCircle01Icon } from "hugeicons-react";
+import { useState } from "react";
+import { updateTaskStatusAction } from "@/actions/taskAction";
 
-export default function CardComponent({ name, desc, status, start, tag, end }) {
+export default function CardComponent({
+  taskId,
+  workspaceId,
+  name,
+  desc,
+  status,
+  start,
+  tag,
+  end,
+}) {
+  const [selectedStatus, setSelectedStatus] = useState(status);
   const trimmedDate = end.split("T")[0];
   const getStatusColor = (status) => {
     const statusColors = {
@@ -19,7 +32,15 @@ export default function CardComponent({ name, desc, status, start, tag, end }) {
       FINISHED:
         "bg-persian-green border-persian-green text-green-persian-green",
     };
-    return statusColors[status] || "bg-gray-300 border-gray-300 text-gray-300"; // Default color
+    return statusColors[status] || "bg-gray-300 border-gray-300 text-gray-300"; // fallback color
+  };
+
+  const handleStatusChange = async (newStatus) => {
+    setSelectedStatus(newStatus);
+
+    const formData = { status: newStatus };
+
+    await updateTaskStatusAction(taskId, workspaceId, formData);
   };
 
   return (
@@ -47,7 +68,7 @@ export default function CardComponent({ name, desc, status, start, tag, end }) {
 
       {/* progress */}
       <div className="flex justify-between items-center border-t border-t-gray-300 p-5">
-        <Select>
+        <Select value={selectedStatus} onValueChange={handleStatusChange}>
           <SelectTrigger
             className={`${getStatusColor(status).split(" ")[1]} ${
               getStatusColor(status).split(" ")[2]

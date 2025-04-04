@@ -54,6 +54,8 @@ const page = async ({ params }) => {
               notStartedTasks?.map((task) => (
                 <CardComponent
                   key={task.taskId}
+                  taskId={task.taskId}
+                  workspaceId={id}
                   name={task.taskTitle}
                   start={task.startDate}
                   end={task.endDate}

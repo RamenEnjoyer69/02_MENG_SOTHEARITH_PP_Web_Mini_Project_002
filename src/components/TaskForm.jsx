@@ -18,7 +18,7 @@ import {
 } from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
 import { Plus } from "lucide-react";
-import { createTaskAction } from "@/actions/createTaskAction";
+import { createTaskAction } from "@/actions/taskAction";
 import { usePathname } from "next/navigation";
 import {
   Select,
@@ -36,11 +36,10 @@ export default function CreateTaskPopup() {
   const [endDate, setEndDate] = useState();
 
   const handleSubmit = async (event) => {
-    event.preventDefault(); // Prevent form submission
+    event.preventDefault();
 
     const formData = new FormData(event.target);
 
-    // Add the endDate to the formData manually
     if (endDate) {
       formData.append("endDate", endDate.toISOString());
     }

@@ -37,3 +37,28 @@ export const createTask = async ({ id, formData }) => {
 
   revalidateTag("task");
 };
+
+export const updateTask = async ({ taskId, workspaceId, formData }) => {
+  const headers = await headerToken();
+
+  // const response = await fetch(
+  //   `${BASE_URL}/task/${taskId}/workspace/${workspaceId}`,
+  //   {
+  //     method: "PUT",
+  //     headers,
+  //     body: JSON.stringify(formData),
+  //     next: {
+  //       tags: ["task"],
+  //     },
+  //   }
+  // );
+
+  console.log("FormData:", formData);
+  console.log("TaskID:", taskId);
+  console.log("WorkspaceID:", workspaceId);
+
+  const result = await response.json();
+  console.log("Task Updated:", result);
+
+  revalidateTag("task");
+};
