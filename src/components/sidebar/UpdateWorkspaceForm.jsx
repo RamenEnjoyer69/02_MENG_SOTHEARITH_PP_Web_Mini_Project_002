@@ -13,12 +13,10 @@ import { updateWorkspaceAction } from "@/actions/updateWorkspaceAction";
 import { MoreHorizontalCircle01Icon } from "hugeicons-react";
 import { useFormState } from "react-dom";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
 
 const UpdateWorkspaceForm = () => {
   const pathname = usePathname(); // Get the current path
   const workspaceId = pathname.split("/").pop();
-  const [workspaceName, setWorkspaceName] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent default form behavior
@@ -42,7 +40,6 @@ const UpdateWorkspaceForm = () => {
               type="text"
               name="workspaceName"
               placeholder="Please type your workspace name"
-              onChange={(e) => setWorkspaceName(e.target.value)}
             />
             <Input
               type="submit"

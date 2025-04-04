@@ -5,15 +5,13 @@ import { Sidebar } from "@/components/sidebar/Sidebar";
 
 export default function AuthenticationLayout({ children }) {
   return (
-    <main className="h-screen overflow-hidden w-full font-inter flex">
+    <main className="h-screen w-full font-inter flex">
       <div className="">
         <Sidebar />
       </div>
-      <div className="w-full flex flex-col pb-4">
-        <div className="">
-          <Topbar />
-        </div>
-        <div className="rounded-3xl h-full border-gray-200 px-4 pt-6 ">
+      <div className="w-full pb-4">
+        <Topbar />
+        <div className="rounded-3xl h-full border-gray-200 px-4 pt-4">
           {children}
         </div>
       </div>

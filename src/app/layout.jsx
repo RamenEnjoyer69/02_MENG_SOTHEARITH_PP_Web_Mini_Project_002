@@ -12,7 +12,7 @@ export const metadata = {
 export default function AuthenticationLayout({ children }) {
   return (
     <html lang="en">
-      <body className="text-charcoal">{children}</body>
+      <body className="text-charcoal overflow-hidden">{children}</body>
     </html>
   );
 }

@@ -1,5 +1,6 @@
 import headerToken from "@/lib/headerToken";
 import { Tag } from "lucide-react";
+import { revalidateTag } from "next/cache";
 
 const BASE_URL = process.env.NEXT_PUBLIC_AUTH_BASE_URL;
 
