@@ -1,12 +1,4 @@
-import { SidebarLeftIcon } from "hugeicons-react";
-import Link from "next/link";
-import Image from "next/image";
-import { Menus } from "../../../data/menu-items";
 import Logo from "../logo";
-import { ScrollArea } from "@/components/ui/scroll-area";
-
-import { MoreHorizontalCircle01Icon } from "hugeicons-react";
-import { HeartAddIcon } from "hugeicons-react";
 import { FavouriteIcon } from "hugeicons-react";
 import { LogOutIcon } from "lucide-react";
 import { signOutAction } from "@/actions/signOutAction";

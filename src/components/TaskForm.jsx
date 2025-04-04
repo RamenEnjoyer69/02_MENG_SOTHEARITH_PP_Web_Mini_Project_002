@@ -73,8 +73,8 @@ export default function CreateTaskPopup() {
 
         <form className="space-y-4 flex flex-col " onSubmit={handleSubmit}>
           {/* Title Input */}
-          <div className="space-y-2">
-            <label className="text-sm font-semibold text-gray-700  mb-4">
+          <div className="flex flex-col">
+            <label className="text-sm font-semibold text-gray-700  mb-3">
               Title
             </label>
             <Input
@@ -85,34 +85,38 @@ export default function CreateTaskPopup() {
           </div>
 
           {/* Tag Input */}
-          <div className="space-y-2">
-            <label className="text-sm font-semibold text-gray-700 mb-4">
+          <div className="flex flex-col w-full">
+            <label className="text-sm font-semibold text-gray-700 mb-3">
               Tag
             </label>
 
-            <Select>
-              <SelectTrigger
-                name="tag"
-                className="border-gray-300 focus:ring-2 focus:ring-blue-500 rounded-lg w-full"
-              >
+            <Select
+              name="tag"
+              className="border-gray-300 focus:ring-2 focus:ring-blue-500 rounded-lg w-full"
+            >
+              <SelectTrigger>
                 <SelectValue placeholder="Select a tag" />
               </SelectTrigger>
               <SelectContent className={"bg-white"}>
                 <SelectGroup>
                   <SelectLabel>Tags</SelectLabel>
-                  <SelectItem value="apple">Apple</SelectItem>
-                  <SelectItem value="banana">Banana</SelectItem>
-                  <SelectItem value="blueberry">Blueberry</SelectItem>
-                  <SelectItem value="grapes">Grapes</SelectItem>
-                  <SelectItem value="pineapple">Pineapple</SelectItem>
+                  <SelectItem value="DESIGN">Design</SelectItem>
+                  <SelectItem value="HOMEWORK">Homework</SelectItem>
+                  <SelectItem value="ASSIGNMENT">Assignment</SelectItem>
+                  <SelectItem value="DEPLOYMENT">Deployment</SelectItem>
+                  <SelectItem value="GIT">Git</SelectItem>
+                  <SelectItem value="DATABASE">Database</SelectItem>
+                  <SelectItem value="MINI_PROJECT">Mini Project</SelectItem>
+                  <SelectItem value="DOCUMENTATION">Documentation</SelectItem>
+                  <SelectItem value="FEATURE">Feature</SelectItem>
                 </SelectGroup>
               </SelectContent>
             </Select>
           </div>
 
           {/* End Date Picker */}
-          <div className="space-y-2">
-            <label className="text-sm font-semibold text-gray-700 mb-4">
+          <div className="flex flex-col">
+            <label className="text-sm font-semibold text-gray-700 mb-3">
               End Date
             </label>
             <Popover>
@@ -139,8 +143,8 @@ export default function CreateTaskPopup() {
           </div>
 
           {/* Details Input */}
-          <div className="">
-            <label className="text-sm font-semibold text-gray-700 mb-4">
+          <div className="flex flex-col">
+            <label className="text-sm font-semibold text-gray-700 mb-3">
               Details
             </label>
             <Input
